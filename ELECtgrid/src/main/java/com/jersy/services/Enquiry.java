@@ -15,26 +15,26 @@ import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
-import com.jersy.bean.changePasswordBean;
-import com.jersy.bean.deleteUserBean;
+
 import com.jersy.bean.enquiryAddBean;
-import com.jersy.dao.changePasswordDao;
-import com.jersy.dao.deleteUserDao;
 import com.jersy.dao.enquiryAddDao;
 
 import com.jersy.bean.enquiryViewBean;
 import com.jersy.dao.enquiryViewDao;
-import com.jersy.dao.readDetails;
+
 import com.jersy.bean.enquiryUpdateBean;
 import com.jersy.dao.enquiryUpdateDao;
 
 import com.jersy.bean.enquiryDeleteBean;
 import com.jersy.dao.enquiryDeleteDao;
 
+import com.jersy.dao.enquiryViewAllDao;
+
+
 @Path("/enquiry")
 public class Enquiry {
 
-	// register a user
+	// enquiryAdd
 	@Path("/enquiryAdd")
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -58,7 +58,7 @@ public class Enquiry {
 		return str;
 	}
 	
-
+//	enquiryView
 	@Path("/enquiryView")
 	@GET
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -84,7 +84,7 @@ public class Enquiry {
 		return "fail";
 	}
 	
-	// change password
+	// enquiry update
 	@Path("/enquiryupdate")
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -112,6 +112,7 @@ public class Enquiry {
 		return "fail1";
 	}
 	
+//	enquiryDelete
 	@Path("/enquiryDelete")
 	@DELETE
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -141,12 +142,12 @@ public class Enquiry {
 	
 	// display all the details
 	@GET
-	@Path("/read")
+	@Path("/enquiryread")
 	@Produces(MediaType.TEXT_HTML)
 	public String readItems() {
-		readDetails r = new readDetails();
+		enquiryViewAllDao r = new enquiryViewAllDao();
 
-		return r.readDetails();
+		return r.enquiryViewAllDao();
 	}
 
 

@@ -1,3 +1,4 @@
+
 package com.jersy.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,6 +9,7 @@ import java.sql.SQLException;
 import com.jersy.bean.enquiryAddBean;
 import com.jersy.dbconnect.dbConnection;
 public class enquiryAddDao {
+
 
 	public static String addDao(enquiryAddBean rs) {
 

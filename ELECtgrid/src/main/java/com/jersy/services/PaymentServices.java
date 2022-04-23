@@ -3,6 +3,7 @@ package com.jersy.services;
 import java.io.IOException;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -12,7 +13,9 @@ import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
+import com.jersy.bean.PaymentDeleteBean;
 import com.jersy.bean.PaymentInsertBean;
+import com.jersy.dao.PaymentDeleteDao;
 import com.jersy.dao.PaymentInsertDao;
 
 
@@ -43,6 +46,37 @@ import com.jersy.dao.PaymentInsertDao;
 
 			return str;
 		}
+		
+		
+
+	/*	//delete
+		
+			@Path("/delete")
+			@DELETE
+			@Consumes(MediaType.APPLICATION_JSON)
+			@Produces(MediaType.APPLICATION_JSON)
+			public String deletePaymentD(String s) {
+
+				try {
+
+					ObjectMapper objectMapper = new ObjectMapper();
+					PaymentDeleteBean deleteP = objectMapper.readValue(s, PaymentDeleteBean.class);
+
+					if (PaymentDeleteDao.deletePayment(deleteP) == true) {
+
+						return "payment details delete successfully";
+
+					} else {
+						return "deletion failed";
+					}
+
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+
+				return "fail";
+			}
+			*/
 	}
 
 

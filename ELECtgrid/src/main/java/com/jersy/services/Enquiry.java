@@ -30,11 +30,12 @@ import com.jersy.dao.enquiryDeleteDao;
 
 import com.jersy.dao.enquiryViewAllDao;
 
-
+//Root path
 @Path("/enquiry")
 public class Enquiry {
 
 	// enquiryAdd
+	//Post
 	@Path("/enquiryAdd")
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -59,6 +60,8 @@ public class Enquiry {
 	}
 	
 //	Search by inquiry ID 
+	
+//	Get method 
 	@Path("/enquirySearch")
 	@GET
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -85,6 +88,7 @@ public class Enquiry {
 	}
 	
 	// enquiry update
+	//Put method
 	@Path("/enquiryupdate")
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -113,6 +117,8 @@ public class Enquiry {
 	}
 	
 //	enquiryDelete
+	//Delete method
+	
 	@Path("/enquiryDelete")
 	@DELETE
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -141,6 +147,9 @@ public class Enquiry {
 	
 	
 	// display all the details
+	
+	// get method
+	//get 
 	@GET
 	@Path("/enquiryread")
 	@Produces(MediaType.TEXT_HTML)

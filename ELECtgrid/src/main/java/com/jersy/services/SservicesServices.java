@@ -3,6 +3,7 @@ package com.jersy.services;
 import java.io.IOException;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -13,15 +14,19 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 import com.google.gson.JsonParseException;
 
+import Sservices.Bean.DeleteServices;
 import Sservices.Bean.InsertServices;
+import Sservices.Bean.ViewServices;
+import Sservices.Dao.DeleteServicesDao;
 import Sservices.Dao.InsertServicesDao;
+import Sservices.Dao.ViewServicesDao;
 
 
-@Path("/service")
+@Path("/SservicesServices")
 public class SservicesServices {
 	
 	// register a user
-		@Path("/register")
+		@Path("/addserv")
 		@POST
 		@Consumes(MediaType.APPLICATION_JSON)
 		@Produces(MediaType.APPLICATION_JSON)
@@ -29,18 +34,6 @@ public class SservicesServices {
 
 			String str = null;
 
-//			JsonParser jsonParser = new JsonParser();
-//			JsonElement jasElement = jsonParser.parse(userdate);
-//			if (jasElement.isJsonObject()) {
-	//
-//				JsonObject jsonObject = jasElement.getAsJsonObject();
-	//
-//				UserBean userBean = new UserBean(jsonObject.get("name").getAsString(),
-//						jsonObject.get("email").getAsString(), jsonObject.get("pass").getAsString(),
-//						jsonObject.get("mobile").getAsString());
-//				str = UserDao.registerDao(userBean);
-	//
-//			}
 
 			try {
 
@@ -57,5 +50,55 @@ public class SservicesServices {
 			return str;
 		}
 
+		// VIEW Employee path
+				@Path("/view")
+				@GET
+				@Consumes(MediaType.APPLICATION_JSON)
+				@Produces(MediaType.APPLICATION_JSON)
+				public String viewEmployee(String s) throws JsonParseException, JsonMappingException, IOException {
 
+					try {
+
+						ObjectMapper objectMapper = new ObjectMapper();
+						ViewServices viewServices = objectMapper.readValue(s, ViewServices.class);
+
+						String result = ViewServicesDao.viewdao(viewServices);
+
+						if (result.equals("failed")) {
+							return "Incorrect request";
+						} else {
+							return result;
+						}
+
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					return "fail1 request";
+				}
+				// delete user
+				@Path("/delete")
+				@POST
+				@Consumes(MediaType.APPLICATION_JSON)
+				@Produces(MediaType.APPLICATION_JSON)
+				public String deleteUser(String s) {
+
+					try {
+
+						ObjectMapper objectMapper = new ObjectMapper();
+						DeleteServices DeleteServices = objectMapper.readValue(s, DeleteServices.class);
+
+						if (DeleteServicesDao.deleteUser(DeleteServices) == true) {
+
+							return "user delete successfully";
+
+						} else {
+							return "remove failed";
+						}
+
+					} catch (Exception e) {
+						// TODO: handle exception
+					}
+
+					return "fail";
+				}
 }

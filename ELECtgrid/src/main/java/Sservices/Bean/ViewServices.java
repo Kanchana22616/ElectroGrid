@@ -1,11 +1,10 @@
 package Sservices.Bean;
 
-public class InsertServices {
+public class ViewServices {
 
 	private int packageID;
 	private String packageType, PackageInstruction,services;
 	private float packageUnitPrice;
-	
 	public int getPackageID() {
 		return packageID;
 	}
@@ -36,7 +35,6 @@ public class InsertServices {
 	public void setPackageUnitPrice(float packageUnitPrice) {
 		this.packageUnitPrice = packageUnitPrice;
 	}
-	
 	
 	
 }

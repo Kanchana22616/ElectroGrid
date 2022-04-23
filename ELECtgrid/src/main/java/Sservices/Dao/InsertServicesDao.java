@@ -37,7 +37,7 @@ public class InsertServicesDao {
 				ps.setString(5, rs.getServices());
 				
 				int i = ps.executeUpdate();
-				System.out.println("hellooo");
+				//System.out.println("hellooo");
 
 				if (i > 0) {
 					return "success";

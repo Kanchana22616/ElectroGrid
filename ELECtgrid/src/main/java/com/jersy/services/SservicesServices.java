@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -16,9 +17,12 @@ import com.google.gson.JsonParseException;
 
 import Sservices.Bean.DeleteServices;
 import Sservices.Bean.InsertServices;
+import Sservices.Bean.UpdateServices;
 import Sservices.Bean.ViewServices;
+import Sservices.Dao.AllViewServDao;
 import Sservices.Dao.DeleteServicesDao;
 import Sservices.Dao.InsertServicesDao;
+import Sservices.Dao.UpdateServicesDao;
 import Sservices.Dao.ViewServicesDao;
 
 
@@ -101,4 +105,48 @@ public class SservicesServices {
 
 					return "fail";
 				}
+				
+				//Put method
+				@Path("/update")
+				@PUT
+				@Consumes(MediaType.APPLICATION_JSON)
+				@Produces(MediaType.APPLICATION_JSON)
+				public String enquiryupdate(String s) {
+
+					try {
+
+						ObjectMapper objectMapper = new ObjectMapper();
+						UpdateServices UpdateServices = objectMapper.readValue(s,  UpdateServices.class);
+
+						if (UpdateServicesDao.checkeservID(UpdateServices) == true
+								&& UpdateServicesDao.changeservDetails(UpdateServices) == true) {
+
+							return "Changes done";
+
+						} else {
+							return "Changes failed";
+						}
+
+					} catch (Exception e) {
+						// TODO: handle exception
+					}
+
+					return "fail1";
+				}
+				
+				
+				
+				// display all the details
+				
+				// get method
+				//get 
+				@GET
+				@Path("/servread")
+				@Produces(MediaType.TEXT_HTML)
+				public String readItems() {
+					AllViewServDao r = new AllViewServDao();
+
+					return r.AllViewServDao();
+				}
+				
 }

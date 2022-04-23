@@ -15,10 +15,10 @@ import org.codehaus.jackson.map.ObjectMapper;
 import com.jersy.bean.PaymentInsertBean;
 import com.jersy.dao.PaymentInsertDao;
 
-public class PaymentServices {
+
 	
 	@Path("/payment")
-	public class paymentServices {
+	public class PaymentServices {
 
 		// make payment
 		@Path("/insert")
@@ -45,4 +45,4 @@ public class PaymentServices {
 		}
 	}
 
-}
+

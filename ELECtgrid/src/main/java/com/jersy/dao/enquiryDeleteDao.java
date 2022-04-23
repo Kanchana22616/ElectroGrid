@@ -9,10 +9,12 @@ public class enquiryDeleteDao {
 
 	public static boolean enquiryDelete(enquiryDeleteBean enquiryDeleteBean) {
 
+		//db connection
 		Connection con = dbConnection.connect();
 
 		try {
 
+			//Query statement
 			PreparedStatement ps = con.prepareStatement("DELETE FROM enquiry WHERE enquiryID=?");
 			ps.setNString(1, enquiryDeleteBean.getEnquiryID());
 			int i = ps.executeUpdate();

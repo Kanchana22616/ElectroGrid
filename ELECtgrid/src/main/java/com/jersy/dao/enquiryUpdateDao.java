@@ -11,12 +11,14 @@ import com.jersy.dbconnect.dbConnection;
 
 public class enquiryUpdateDao {
 
+	//check inquiry id 
 	public static boolean checkenquiryID(enquiryUpdateBean enquiryUpdateBean) {
 
 		Connection con = dbConnection.connect();
 
 		try {
 
+			//Quarry statement for checking
 			PreparedStatement ps = con.prepareStatement("select * from enquiry where enquiryID=?");
 			ps.setNString(1, enquiryUpdateBean.getEnquiryID());
 			ResultSet rs = ps.executeQuery();
@@ -34,7 +36,8 @@ public class enquiryUpdateDao {
 		}
 
 	}
-
+	
+	//Update details according to inquiry id 
 	public static boolean changeDetails(enquiryUpdateBean enquiryUpdateBean) {
 		String s1 = enquiryUpdateBean.getNewType();
 		Connection con = dbConnection.connect();
@@ -43,6 +46,7 @@ public class enquiryUpdateDao {
 			
 			if(s1.equals("powercut") || s1.equals("billissue")) {
 
+				//Quarry statement for updating 
 					PreparedStatement ps = con.prepareStatement("update enquiry set email=? , name=? , contact=? , enquiryType=? , enquiryDetails=? where enquiryID=?");
 					ps.setNString(6, enquiryUpdateBean.getEnquiryID());
 					ps.setNString(1, enquiryUpdateBean.getNewemail());

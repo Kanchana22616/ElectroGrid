@@ -14,6 +14,7 @@ public class enquiryViewAllDao {
 
 		try {
 
+			//db connection
 		Connection con = dbConnection.connect();
 
 
@@ -31,6 +32,7 @@ public class enquiryViewAllDao {
 				+ "<th>Enquiry Type</th>"
 				+ "<th>Enquiry Details</th> </tr>";
 
+		//Quarry statement for select all in table
 		String query = "select * from enquiry";
 		Statement stmt = con.createStatement();
 		ResultSet rs = stmt.executeQuery(query);

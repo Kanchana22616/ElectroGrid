@@ -23,6 +23,7 @@ import Bill.dao.addBillDao;
 import Bill.dao.deleteBillDao;
 import Bill.dao.updateBillDao;
 import Bill.dao.viewBillDao;
+import Bill.dao.viewallBillDao;
 
 	@Path("/bills")
 	public class BillServices {
@@ -56,7 +57,7 @@ import Bill.dao.viewBillDao;
 	
 	    //view bill
 		@Path("/viewBill")
-		@POST
+		@GET
 		@Consumes(MediaType.APPLICATION_JSON)
 		@Produces(MediaType.APPLICATION_JSON)
 		public String viewabill(String s) throws JsonParseException, JsonMappingException, IOException {
@@ -138,6 +139,18 @@ import Bill.dao.viewBillDao;
 
 			return "fail";
 		}
+		
+		
+		// display all the bill details
+		@GET
+		@Path("/viewallBill")
+		@Produces(MediaType.TEXT_HTML)
+		public String readItems() {
+			viewallBillDao r = new viewallBillDao();
+
+			return r.viewallBillDao();
+		}
+		
 	
 	
 }

@@ -58,8 +58,8 @@ public class Enquiry {
 		return str;
 	}
 	
-//	enquiryView
-	@Path("/enquiryView")
+//	Search by inquiry ID 
+	@Path("/enquirySearch")
 	@GET
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)

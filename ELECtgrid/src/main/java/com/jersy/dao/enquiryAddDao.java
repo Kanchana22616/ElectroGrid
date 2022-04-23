@@ -8,13 +8,15 @@ import java.sql.SQLException;
 
 import com.jersy.bean.enquiryAddBean;
 import com.jersy.dbconnect.dbConnection;
+
+import sun.print.PSPrinterJob.PluginPrinter;
 public class enquiryAddDao {
 
 
 	public static String addDao(enquiryAddBean rs) {
 
 //		int otp = new Random().nextInt(345);
-		String s1 = rs.getEmail();
+		String s1 = rs.getEnquiryType();
 
 		Connection con = dbConnection.connect();
 		
@@ -24,16 +26,19 @@ public class enquiryAddDao {
 			ps1.setString(1, rs.getEnquiryID());
 			ResultSet rrs = ps1.executeQuery();
 			
-			PreparedStatement ps2 = con.prepareStatement("select email from user where email=?");
-			ps1.setString(1, rs.getEmail() );
-			ResultSet rrs1 = ps2.executeQuery();
+			
+//			PreparedStatement ps2 =
+//			con.prepareStatement("select email from user where email=?");
+//			ps1.setString(1, rs.getEmail() ); 
+//			ResultSet rrs1 = ps2.executeQuery();
+//			 
 
 			if (rrs.next()) {
 				return "Already Exist";
 				
-			}else if (rrs1.next()) {
+			}else{
 				
-				if(s1 == "powercut" || s1 == "billissue") {
+				if(s1.equals("powercut") || s1.equals("billissue")) {
 			
 					PreparedStatement ps = con.prepareStatement("insert into enquiry values(?,?,?,?, ?, ?)");
 					ps.setString(1, rs.getEnquiryID());
@@ -51,17 +56,19 @@ public class enquiryAddDao {
 						return "failed";
 					}
 				
+				}else {
+					return "type not passed correctly";
 				}
 				
 			} 
 			
 			
 			
-			else {
-
-				return "E-mail is not Registered as user !";
-				
-			}
+//			else {
+//
+//				return "E-mail is not Registered as user !";
+//				
+//			}
 
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -74,7 +81,7 @@ public class enquiryAddDao {
 				e2.printStackTrace();
 			}
 		}
-		return "fail";
+		return "fail1";
 
 	}
 

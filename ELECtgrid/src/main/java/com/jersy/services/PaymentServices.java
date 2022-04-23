@@ -49,7 +49,7 @@ import com.jersy.dao.PaymentInsertDao;
 		
 		
 
-	/*	//delete
+		//delete
 		
 			@Path("/delete")
 			@DELETE
@@ -76,7 +76,7 @@ import com.jersy.dao.PaymentInsertDao;
 
 				return "fail";
 			}
-			*/
+			
 	}
 
 

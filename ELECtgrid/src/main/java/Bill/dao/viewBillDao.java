@@ -14,10 +14,18 @@ public class viewBillDao {
 
 	public static String viewBillDetails(viewBillBean rs) {
 
-
+		String output = "";
 		Connection con = dbConnection.connect();
 
 		try {
+			
+			output = "<table border='1'><tr>"
+					+ "<th>User ID</th>"
+					+ "<th>Bill ID</th>"
+					+ "<th>Date</th>"
+					+ "<th>Arrears</th>"
+					+ "<th>Amount</th>"
+					+ "<th>Total Payble</th> </tr>";
 
 			PreparedStatement ps1 = con.prepareStatement("select * from bill where billId=? ");
 			ps1.setString(1, rs.getBillId());
@@ -25,27 +33,24 @@ public class viewBillDao {
 
 			if (rrs.next()) {
 
-
-				JSONObject jsonObject = new JSONObject();
-				jsonObject.put("userId", rrs.getString(1));
-				jsonObject.put("billId", rrs.getString(2));
-				jsonObject.put("date", rrs.getString(3));
-				jsonObject.put("arrears", rrs.getFloat(4));
-				jsonObject.put("mobile", rrs.getFloat(5));
-				jsonObject.put("totalPayble", rrs.getFloat(6));
-				JSONArray jsonArray = new JSONArray();
-				jsonArray.add(jsonObject);
-				return "" + jsonArray;
+											
+				String userId = rrs.getString(1);
+				String billId = rrs.getString(2);
+				String date = rrs.getString(3);
+				Float arrears = rrs.getFloat(4);
+				Float amount = rrs.getFloat(5);
+				Float totalPayble = rrs.getFloat(6);
 				
-//				PreparedStatement ps2 = con.prepareStatement("update user set status = ? where email = ?");
-//				ps2.setString(1, "online");
-//				ps2.setNString(2, rs.getEmail());
-//				int i = ps2.executeUpdate();
-//
-//				if (i > 0) {
-//
-//					return "" + jsonArray;
-//				}
+				output += "<tr><td>" + userId + "</td>";
+				output += "<td>" + billId + "</td>";
+				output += "<td>" + date + "</td>";
+				output += "<td>" + arrears + "</td>";
+				output += "<td>" + amount + "</td>";
+				output += "<td>" + totalPayble + "</td>";
+
+
+				output += "</table>";
+				return "" + output;
 
 			} else {
 

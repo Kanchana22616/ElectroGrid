@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -15,10 +16,10 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 import com.jersy.bean.PaymentDeleteBean;
 import com.jersy.bean.PaymentInsertBean;
+import com.jersy.bean.PaymentUpdateBean;
 import com.jersy.dao.PaymentDeleteDao;
 import com.jersy.dao.PaymentInsertDao;
-
-
+import com.jersy.dao.PaymentUpdateDao;
 	
 	@Path("/payment")
 	public class PaymentServices {
@@ -49,7 +50,7 @@ import com.jersy.dao.PaymentInsertDao;
 		
 		
 
-		//delete
+		    //delete
 		
 			@Path("/delete")
 			@DELETE
@@ -76,6 +77,35 @@ import com.jersy.dao.PaymentInsertDao;
 
 				return "fail";
 			}
+			
+			
+			//update
+			@Path("/update")
+			@PUT
+			@Consumes(MediaType.APPLICATION_JSON)
+			@Produces(MediaType.APPLICATION_JSON)
+			public String updatePayment(String s) {
+
+				try {
+
+					ObjectMapper objectMapper = new ObjectMapper();
+					PaymentUpdateBean updateD = objectMapper.readValue(s, PaymentUpdateBean.class);
+
+					if( PaymentUpdateDao.updatePayment(updateD) == true) {
+
+						return "update details successfully";
+
+					} else {
+						return "update failed";
+					}
+
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+
+				return "fail";
+			}
+			
 			
 	}
 

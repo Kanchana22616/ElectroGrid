@@ -12,7 +12,7 @@ public class AllViewServDao {
 
 		try {
 
-			//db connection
+			//database connection
 		Connection con = DbConnection.connect();
 
 
@@ -30,7 +30,7 @@ public class AllViewServDao {
 				+ "<th>services</th> </tr>";
 			
 
-		//Quarry statement for select all in table
+		//Query statement for select all in table
 		String query = "select * from servicemanagement";
 		Statement stmt = con.createStatement();
 		ResultSet rs = stmt.executeQuery(query);

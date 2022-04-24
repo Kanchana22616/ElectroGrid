@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -16,10 +17,13 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 import com.jersy.bean.PaymentDeleteBean;
 import com.jersy.bean.PaymentInsertBean;
+import com.jersy.bean.PaymentRetrieveBean;
 import com.jersy.bean.PaymentUpdateBean;
 import com.jersy.dao.PaymentDeleteDao;
 import com.jersy.dao.PaymentInsertDao;
+import com.jersy.dao.PaymentRetrieveDao;
 import com.jersy.dao.PaymentUpdateDao;
+
 	
 	@Path("/payment")
 	public class PaymentServices {
@@ -105,6 +109,31 @@ import com.jersy.dao.PaymentUpdateDao;
 
 				return "fail";
 			}
+			
+			
+			@Path("/show")
+			@GET
+			@Consumes(MediaType.APPLICATION_JSON)
+			@Produces(MediaType.APPLICATION_JSON)
+			public String loginUser(String s) throws JsonParseException, JsonMappingException, IOException {
+
+				try {
+
+					ObjectMapper objectMapper = new ObjectMapper();
+					PaymentRetrieveBean cD = objectMapper.readValue(s, PaymentRetrieveBean.class);
+
+					String result = PaymentRetrieveDao.showDetails(cD);
+
+				
+						return result;
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				return "fail";
+			}
+
+
 			
 			
 	}

@@ -137,9 +137,9 @@ public class SservicesServices {
 				
 				
 				// display all the details
-				
 				// get method
-				//get 
+				
+				 
 				@GET
 				@Path("/servread")
 				@Produces(MediaType.TEXT_HTML)

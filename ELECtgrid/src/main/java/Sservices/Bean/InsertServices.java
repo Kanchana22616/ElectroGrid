@@ -5,7 +5,7 @@ public class InsertServices {
 	private int packageID;
 	private String packageType, PackageInstruction,services;
 	private float packageUnitPrice;
-	
+	// Creating getters and setters
 	public int getPackageID() {
 		return packageID;
 	}

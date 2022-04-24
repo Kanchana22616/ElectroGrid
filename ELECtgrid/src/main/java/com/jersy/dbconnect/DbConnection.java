@@ -9,7 +9,7 @@ public class DbConnection {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/asiridb", "root", "root");
-			// For testing
+			// For testing purpose
 			System.out.print("---Successfully connected---");
 		} catch (Exception e) {
 			e.printStackTrace();

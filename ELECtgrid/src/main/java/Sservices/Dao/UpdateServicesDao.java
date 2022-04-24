@@ -32,11 +32,11 @@ public class UpdateServicesDao {
 		
 	}
 	
-		//Update details according to inquiry id 
+		//Update details according to packageID 
 		public static boolean changeservDetails(UpdateServices UpdateServices) {
 
 			Connection con =  DbConnection.connect();
-//			,enquiryType?,enquiryDetails=?
+
 			try {
 
 						PreparedStatement ps = con.prepareStatement("update servicemanagement set packageType=? , packageUnitPrice=? , PackageInstruction=? , services=? where packageID=?");

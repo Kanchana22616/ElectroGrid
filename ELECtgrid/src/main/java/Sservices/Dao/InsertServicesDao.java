@@ -14,7 +14,7 @@ public class InsertServicesDao {
 	
 	public static String insertservice(InsertServices rs) {
 
-		//int otp = new Random().nextInt(345);
+		//DB connection
 
 		Connection con = DbConnection.connect();
 

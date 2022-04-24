@@ -39,9 +39,9 @@ public class ViewServicesDao {
 				JSONArray jsonArray = new JSONArray();
 				jsonArray.add(jsonObject);
 				return "" + jsonArray;
-//				PreparedStatement ps2 = con.prepareStatement("update user set status = ? where email = ?");
+//				PreparedStatement ps2 = con.prepareStatement("update servicemanagement set status = ? where package ID = ?");
 //				ps2.setString(1, "online");
-//				ps2.setNString(2, rs.getEmail());
+//				ps2.setNString(2, rs.getPackageID());
 //				int i = ps2.executeUpdate();
 //
 //				if (i > 0) {

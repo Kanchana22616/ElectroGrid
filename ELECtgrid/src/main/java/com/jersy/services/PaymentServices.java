@@ -111,7 +111,7 @@ import com.jersy.dao.PaymentUpdateDao;
 			}
 			
 			
-			@Path("/show")
+			@Path("/view")
 			@GET
 			@Consumes(MediaType.APPLICATION_JSON)
 			@Produces(MediaType.APPLICATION_JSON)

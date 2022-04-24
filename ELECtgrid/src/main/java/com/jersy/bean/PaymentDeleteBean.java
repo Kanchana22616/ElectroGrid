@@ -2,14 +2,17 @@ package com.jersy.bean;
 
 public class PaymentDeleteBean {
 	
-	private String email;
+	
+	private String accountNumber;
 
-	public String getEmail() {
-		return email;
+	public String getAccountNumber() {
+		return accountNumber;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
 	}
+
+	
 
 }

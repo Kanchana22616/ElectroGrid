@@ -14,7 +14,7 @@ public class PaymentUpdateDao {
 
 		try {
 
-			PreparedStatement ps = con.prepareStatement("update payment set cardType=?,cardNumber=?,expMonth=?,expYear=?,cvv=? where email=?");
+			PreparedStatement ps = con.prepareStatement("update payment set cardType=?,cardNumber=?,expMonth=?,expYear=?,cvv=? where cardNumber=?");
 			ps.setNString(1, updateD.getCardType());
 			ps.setNString(2, updateD.getCardNumber());
 			ps.setNString(3, updateD.getExpMonth());

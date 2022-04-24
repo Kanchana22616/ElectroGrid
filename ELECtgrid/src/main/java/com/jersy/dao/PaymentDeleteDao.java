@@ -14,8 +14,8 @@ public class PaymentDeleteDao {
 
 		try {
 
-			PreparedStatement ps = con.prepareStatement("DELETE FROM payment WHERE email=?");
-			ps.setNString(1, deleteP.getEmail());
+			PreparedStatement ps = con.prepareStatement("DELETE FROM payment WHERE accountNumber=?");
+			ps.setNString(1, deleteP.getAccountNumber());
 			int i = ps.executeUpdate();
 
 			if (i > 0) {

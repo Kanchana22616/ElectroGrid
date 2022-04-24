@@ -33,7 +33,7 @@ public class EmployeeServices {
 
 	// VIEW Employee path
 		@Path("/view")
-		@GET
+		@GET   //calling get 
 		@Consumes(MediaType.APPLICATION_JSON)
 		@Produces(MediaType.APPLICATION_JSON)
 		public String viewEmployee(String s) throws JsonParseException, JsonMappingException, IOException {
@@ -43,10 +43,10 @@ public class EmployeeServices {
 				ObjectMapper objectMapper = new ObjectMapper();
 				ViewEmployeeBean ViewEmployeeBean = objectMapper.readValue(s, ViewEmployeeBean.class);
 
-				String result = ViewEmployeeDao.ViewEmployeeDao(ViewEmployeeBean);
+				String result = ViewEmployeeDao.ViewEmployeeDao(ViewEmployeeBean);//calling viewEmployeeDao method 
 
 				if (result.equals("failed")) {
-					return "Incorrect request";
+					return "Incorrect request";  //if failed then display message 
 				} else {
 					return result;
 				}
@@ -59,7 +59,7 @@ public class EmployeeServices {
 		
 		// Insert Employee path
 				@Path("/insert")
-				@POST
+				@POST  //caling post 
 				@Consumes(MediaType.APPLICATION_JSON)
 				@Produces(MediaType.APPLICATION_JSON)
 				public String registerUser(String userdate) throws JsonParseException, JsonMappingException, IOException {
@@ -70,7 +70,7 @@ public class EmployeeServices {
 
 						ObjectMapper mapper = new ObjectMapper();
 						InsertEmployeeBean InsertEmployeeBean = mapper.readValue(userdate, InsertEmployeeBean.class);
-						str = InsertEmployeeDao.InsertDao(InsertEmployeeBean);
+						str = InsertEmployeeDao.InsertDao(InsertEmployeeBean); //calling insertDao method 
 
 					} catch (Exception e) {
 						// TODO: handle exception
@@ -84,7 +84,7 @@ public class EmployeeServices {
 
 				// UPDATE Employee PART
 				@Path("/update")
-				@PUT
+				@PUT   //calling put 
 				@Consumes(MediaType.APPLICATION_JSON)
 				@Produces(MediaType.APPLICATION_JSON)
 				public String employeeUpdate(String s) {
@@ -97,7 +97,7 @@ public class EmployeeServices {
 						if ( UpdateEmployeeDao.checkEmployee(UpdateEmployeeBean) == true
 								&& UpdateEmployeeDao.changeEmployee(UpdateEmployeeBean) == true) {
 
-							return "update successfully";
+							return "Employee update successfully"; //disaplay message 
 
 						} else {
 							return "update failed";
@@ -113,7 +113,7 @@ public class EmployeeServices {
 
 				// delete Employee Path
 				@Path("/delete")
-				@DELETE
+				@DELETE  //calling delete
 				@Consumes(MediaType.APPLICATION_JSON)
 				@Produces(MediaType.APPLICATION_JSON)
 				public String deleteUser(String s) {
@@ -125,7 +125,7 @@ public class EmployeeServices {
 
 						if (DeleteEmployeeDao.DeleteEmployeeDao(DeleteEmployeeBean) == true) {
 
-							return "user delete successfully";
+							return "Employee delete successfully";   //display message 
 
 						} else {
 							return "remove failed";
@@ -139,7 +139,7 @@ public class EmployeeServices {
 				}
 				
 				// display all the details
-				@GET
+				@GET  //all database data retrive 
 				@Path("/employeeView")
 				@Produces(MediaType.TEXT_HTML)
 				public String readItems() {

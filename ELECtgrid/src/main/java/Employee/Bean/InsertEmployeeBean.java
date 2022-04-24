@@ -2,7 +2,7 @@ package Employee.Bean;
 
 public class InsertEmployeeBean {
  
-	private String empName,empDept,empDOB,empEmail,contractNum;
+	private String empName,empDept,empDOB,empEmail,contractNum;  //declar veriable 
 	private int empID,empAge ;
 	public String getEmpName() {
 		return empName;

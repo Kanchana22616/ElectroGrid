@@ -21,7 +21,7 @@ public class ViewAllEmployee {
 
 		}
 
-		// Prepare the html table to be displayed
+		// Prepare the html table to be displayed here 
 		output = "<table border='1'><tr>"
 				+ "<th>EmpID</th>"
 				+ "<th> EmpName</th>"
@@ -31,12 +31,12 @@ public class ViewAllEmployee {
 				+ "<th>EmpEmail</th>"
 				+ "<th>ContactNUm</th> </tr>";
 
-		String query = "select * from employee";
+		String query = "select * from employee"; // using sql quary data retrival 
 		Statement stmt = con.createStatement();
 		ResultSet rs = stmt.executeQuery(query);
 
 		while (rs.next()) {
-			int empID = rs.getInt(1);
+			int empID = rs.getInt(1);      //set up data as become table 
 			String empName = rs.getString(2);
 			int empAge = rs.getInt(3);
 			String empDept = rs.getString(4);

@@ -18,7 +18,7 @@ public class InsertEmployeeDao {
 
 		
 
-		Connection con = dbConnection.connect();
+		Connection con = dbConnection.connect();  //db connect line
 
 		try {
 
@@ -34,7 +34,7 @@ public class InsertEmployeeDao {
 
 				
 				PreparedStatement ps = con.prepareStatement("insert into Employee values(?,?,?,?, ?,?, ?)"); //insert data feild for table
-				ps.setInt(1, rs.getEmpID());
+				ps.setInt(1, rs.getEmpID()); //all data base field fix in order to
 				ps.setString(2, rs.getEmpName());
 				ps.setInt(3, rs.getEmpAge());
 				ps.setString(4, rs.getEmpDept());
@@ -51,7 +51,7 @@ public class InsertEmployeeDao {
 				}
 
 			}
-
+        //try carch handler
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e);

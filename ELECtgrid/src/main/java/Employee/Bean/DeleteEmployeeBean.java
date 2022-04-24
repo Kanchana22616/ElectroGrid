@@ -2,9 +2,9 @@ package Employee.Bean;
 
 public class DeleteEmployeeBean {
 
-	private int empID;
+	private int empID;  //dectarion attribute 
 
-	public int getEmpID() {
+	public int getEmpID() {        //fix up setter and getter 
 		return empID;
 	}
 

@@ -13,7 +13,7 @@ public class DeleteEmployeeDao {
 
 	public static boolean DeleteEmployeeDao(DeleteEmployeeBean DeleteEmployeeBean) {
 
-		Connection con = dbConnection.connect();
+		Connection con = dbConnection.connect(); //db connect line
 
 		try {
 

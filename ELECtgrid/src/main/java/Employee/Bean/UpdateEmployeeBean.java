@@ -2,7 +2,7 @@ package Employee.Bean;
 
 public class UpdateEmployeeBean {
 
-	private String newempName,newempDept,newempDOB,newempEmail,newcontractNum;
+	private String newempName,newempDept,newempDOB,newempEmail,newcontractNum; //declar variable 
 	private int empID,newempAge ;
 	public String getNewempName() {
 		return newempName;

@@ -13,7 +13,7 @@ public class UpdateEmployeeDao {
 
 	public static boolean checkEmployee(UpdateEmployeeBean UpdateEmployeeBean) {
 
-		Connection con = dbConnection.connect(); 
+		Connection con = dbConnection.connect();  //db connect line 
 
 		try {
 
@@ -36,13 +36,13 @@ public class UpdateEmployeeDao {
 
 	}
 
-	//employee chnge values  part in   setup
+	//employee change values  part in   setup
 	public static boolean changeEmployee(UpdateEmployeeBean UpdateEmployeeBean) {
 
-		Connection con = dbConnection.connect();
+		Connection con = dbConnection.connect();     //db connect line 
 
 		try {
-
+            //all update field are here can change 1 or more 
 			PreparedStatement ps = con.prepareStatement("update Employee set  EmpName=? , EmpAge = ? , EmpDept= ? , EmpDOB =? , EmpEmail = ? , ContractNum = ? where EmpId=?");
 			ps.setInt(7,UpdateEmployeeBean.getEmpID());
 			ps.setString(1, UpdateEmployeeBean.getNewempName());

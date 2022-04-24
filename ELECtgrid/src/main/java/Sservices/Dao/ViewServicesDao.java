@@ -21,7 +21,7 @@ public class ViewServicesDao {
 		Connection con = DbConnection.connect();
 
 		try {
-
+			//retriew all query
 			PreparedStatement ps1 = con.prepareStatement("select * from servicemanagement where packageID=?");
 			ps1.setInt(1, rs.getPackageID());
 		

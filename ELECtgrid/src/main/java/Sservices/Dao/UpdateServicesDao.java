@@ -13,7 +13,7 @@ public class UpdateServicesDao {
 
 		try {
 
-			//Quarry statement for checking
+			//check the Query statement 
 			PreparedStatement ps = con.prepareStatement("select * from servicemanagement where packageID=?");
 			ps.setInt(1, UpdateServices.getPackageID());
 			ResultSet rs = ps.executeQuery();
@@ -32,7 +32,7 @@ public class UpdateServicesDao {
 		
 	}
 	
-		//Update details according to packageID 
+		//Update details according to the packageID 
 		public static boolean changeservDetails(UpdateServices UpdateServices) {
 
 			Connection con =  DbConnection.connect();

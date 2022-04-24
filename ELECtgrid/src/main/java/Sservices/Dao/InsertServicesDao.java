@@ -19,7 +19,7 @@ public class InsertServicesDao {
 		Connection con = DbConnection.connect();
 
 		try {
-
+			//catching the package ID  in table
 			PreparedStatement ps1 = con.prepareStatement("select packageID from servicemanagement where packageID=?");
 			ps1.setInt(1, rs.getPackageID());
 			ResultSet rrs = ps1.executeQuery();
@@ -28,7 +28,7 @@ public class InsertServicesDao {
 				return "Already Exist";
 			} else {
 
-				
+				//Inserting query
 				PreparedStatement ps = con.prepareStatement("insert into servicemanagement values(?,?,?,?,?)");
 				ps.setInt(1, rs.getPackageID());
 				ps.setString(2, rs.getPackageType());

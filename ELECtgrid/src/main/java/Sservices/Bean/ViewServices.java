@@ -1,7 +1,8 @@
 package Sservices.Bean;
 
 public class ViewServices {
-
+//put the variables
+	//creating the getters and setters on it
 	private int packageID;
 	private String packageType, PackageInstruction,services;
 	private float packageUnitPrice;

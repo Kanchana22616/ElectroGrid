@@ -13,7 +13,7 @@ public class DeleteServicesDao {
 		Connection con = DbConnection.connect();
 
 		try {
-
+			//delete query
 			PreparedStatement ps = con.prepareStatement("DELETE FROM servicemanagement WHERE packageID=?");
 			ps.setNString(1, DeleteServices.getPackageID());
 			int i = ps.executeUpdate();

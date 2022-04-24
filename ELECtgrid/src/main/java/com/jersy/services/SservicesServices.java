@@ -29,7 +29,7 @@ import Sservices.Dao.ViewServicesDao;
 @Path("/SservicesServices")
 public class SservicesServices {
 	
-	// register a user
+	// Add a package 
 		@Path("/addserv")
 		@POST
 		@Consumes(MediaType.APPLICATION_JSON)
@@ -54,7 +54,7 @@ public class SservicesServices {
 			return str;
 		}
 
-		// VIEW Employee path
+		// View package details
 				@Path("/view")
 				@GET
 				@Consumes(MediaType.APPLICATION_JSON)
@@ -79,7 +79,7 @@ public class SservicesServices {
 					}
 					return "fail1 request";
 				}
-				// delete user
+				// delete package
 				@Path("/delete")
 				@POST
 				@Consumes(MediaType.APPLICATION_JSON)
@@ -106,7 +106,7 @@ public class SservicesServices {
 					return "fail";
 				}
 				
-				//Put method
+				//Put method - update package details
 				@Path("/update")
 				@PUT
 				@Consumes(MediaType.APPLICATION_JSON)

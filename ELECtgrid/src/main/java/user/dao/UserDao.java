@@ -40,9 +40,9 @@ public class UserDao {
 				int i = ps.executeUpdate();
 
 				if (i > 0) {
-					return "success";
+					return "User Registered Successfully";
 				} else {
-					return "failed";
+					return "Registered Fail";
 				}
 
 			}

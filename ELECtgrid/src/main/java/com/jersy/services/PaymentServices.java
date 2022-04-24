@@ -24,6 +24,8 @@ import com.jersy.dao.PaymentInsertDao;
 import com.jersy.dao.PaymentRetrieveDao;
 import com.jersy.dao.PaymentUpdateDao;
 
+import com.jersy.dao.PaymentViewAllDao;
+
 	
 	@Path("/payment")
 	public class PaymentServices {
@@ -131,6 +133,19 @@ import com.jersy.dao.PaymentUpdateDao;
 					e.printStackTrace();
 				}
 				return "fail";
+			}
+			
+			// display all the details
+			
+		
+			//get 
+			@GET
+			@Path("/enquiryread")
+			@Produces(MediaType.TEXT_HTML)
+			public String readItems() {
+				PaymentViewAllDao r = new PaymentViewAllDao();
+
+				return r.payentViewAll();
 			}
 
 

@@ -6,8 +6,9 @@ import java.sql.Statement;
 
 import com.dbconnect.DbConnection;
 
-public class PaymentViewAll {
-	public static String enquiryViewAllDao() {
+public class PaymentViewAllDao {
+	
+	public static String payentViewAll() {
 
 		String output = "";
 
@@ -71,4 +72,5 @@ public class PaymentViewAll {
 	}
 	return output;
 	}
+
 }

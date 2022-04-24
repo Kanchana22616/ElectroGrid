@@ -2,7 +2,7 @@ package com.jersy.bean;
 
 public class PaymentInsertBean {
 	private String accountNumber;
-	private int amount ;
+	private float amount ;
 	private String email; 
 	private String cardType;
 	private String cardNumber;
@@ -17,10 +17,10 @@ public class PaymentInsertBean {
 	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
 	}
-	public int getAmount() {
+	public float getAmount() {
 		return amount;
 	}
-	public void setAmount(int amount) {
+	public void setAmount(float amount) {
 		this.amount = amount;
 	}
 	public String getEmail() {

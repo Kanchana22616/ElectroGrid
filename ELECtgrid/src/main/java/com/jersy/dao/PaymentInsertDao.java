@@ -17,7 +17,7 @@ public class PaymentInsertDao {
 
 				PreparedStatement ps = conn.prepareStatement("insert into payment values(?,?,?,?,?,?,?,?)");
 				ps.setString(1, payment.getAccountNumber());
-				ps.setString(2,Integer.toString(payment.getAmount()));
+				ps.setString(2,Float.toString(payment.getAmount()));
 				ps.setString(3, payment.getEmail());
 				ps.setString(4, payment.getCardType());
 				ps.setString(5, payment.getAccountNumber());

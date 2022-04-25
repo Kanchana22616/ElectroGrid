@@ -27,39 +27,51 @@ public class enquiryAddDao {
 			ResultSet rrs = ps1.executeQuery();
 			
 			
-//			PreparedStatement ps2 =
-//			con.prepareStatement("select email from user where email=?");
-//			ps1.setString(1, rs.getEmail() ); 
-//			ResultSet rrs1 = ps2.executeQuery();
-//			 
+			PreparedStatement ps2 = con.prepareStatement("select email from user where email=?");
+			ps2.setString(1, rs.getEmail() ); 
+			ResultSet rrs1 = ps2.executeQuery();
+			 
+			
 			//check entered id already exit or not
-			if (rrs.next()) {
-				return "Already Exist";
+			if (rrs1.next()) {
+				
+				if (rrs.next()) {
+					
+					return "InquiryID is already exist";
+					
+				} else {
+					
+					if(s1.equals("powercut") || s1.equals("billissue")) {
+						
+						
+						PreparedStatement ps = con.prepareStatement("insert into enquiry values(?,?,?,?, ?, ?)");
+						ps.setString(1, rs.getEnquiryID());
+						ps.setString(2, rs.getEmail());
+						ps.setString(3, rs.getName());
+						ps.setString(4, rs.getContact());
+						ps.setString(5, rs.getEnquiryType());
+						ps.setString(6, rs.getEnquiryDetails());
+		
+						int i = ps.executeUpdate();
+		
+						if (i > 0) {
+							return "success";
+						} else {
+							return "failed";
+						}
+					
+					}else {
+						return "type not passed correctly";
+					}
+
+				}
+				
+				
+				
 				
 			}else{
 				//check enter inquiry type powercut or billissue
-				if(s1.equals("powercut") || s1.equals("billissue")) {
-			
-					
-					PreparedStatement ps = con.prepareStatement("insert into enquiry values(?,?,?,?, ?, ?)");
-					ps.setString(1, rs.getEnquiryID());
-					ps.setString(2, rs.getEmail());
-					ps.setString(3, rs.getName());
-					ps.setString(4, rs.getContact());
-					ps.setString(5, rs.getEnquiryType());
-					ps.setString(6, rs.getEnquiryDetails());
-	
-					int i = ps.executeUpdate();
-	
-					if (i > 0) {
-						return "success";
-					} else {
-						return "failed";
-					}
-				
-				}else {
-					return "type not passed correctly";
-				}
+				return "E-mail is not Registered as user !";
 				
 			} 
 			

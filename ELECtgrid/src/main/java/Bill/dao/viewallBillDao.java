@@ -27,7 +27,9 @@ public class viewallBillDao {
 				+ "<th>Date</th>"
 				+ "<th>Arrears</th>"
 				+ "<th>Amount</th>"
-				+ "<th>Total Payble</th> </tr>";
+				+ "<th>Total Payble</th>"
+				+ "<th>Emp Name</th>"
+				+ " </tr>";
 
 		String query = "select * from bill";
 		Statement stmt = con.createStatement();
@@ -40,6 +42,7 @@ public class viewallBillDao {
 			Float arrears = rs.getFloat(4);
 			Float amount = rs.getFloat(5);
 			Float totalPayble = rs.getFloat(6);
+			String empName = rs.getString(7);
 
 			// Add into the html table
 			output += "<tr><td>" + userId + "</td>";
@@ -48,7 +51,7 @@ public class viewallBillDao {
 			output += "<td>" + arrears + "</td>";
 			output += "<td>" + amount + "</td>";
 			output += "<td>" + totalPayble + "</td>";
-
+			output += "<td>" + empName + "</td>";
 	}
 		con.close();
 

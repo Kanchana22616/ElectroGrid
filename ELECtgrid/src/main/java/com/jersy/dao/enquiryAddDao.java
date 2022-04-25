@@ -25,8 +25,9 @@ public class enquiryAddDao {
 			PreparedStatement ps1 = con.prepareStatement("select enquiryID from enquiry where enquiryID=?");
 			ps1.setString(1, rs.getEnquiryID());
 			ResultSet rrs = ps1.executeQuery();
-			
-			
+
+
+			//check with user table to validate email 
 			PreparedStatement ps2 = con.prepareStatement("select email from user where email=?");
 			ps2.setString(1, rs.getEmail() ); 
 			ResultSet rrs1 = ps2.executeQuery();

@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 
 public class dbConnection {
 
+
 	public static Connection connect() {
 		Connection con = null; //intial stage  assign nothing connected 
 		try {

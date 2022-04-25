@@ -30,13 +30,14 @@ public class addBillDao {
 				
 				
 				
-				PreparedStatement ps = con.prepareStatement("insert into bill values(?,?,?,?,?,?)");
+				PreparedStatement ps = con.prepareStatement("insert into bill values(?,?,?,?,?,?,?)");
 				ps.setString(1, rs.getUserId());
 				ps.setString(2, rs.getBillId());
 				ps.setString(3, rs.getDate());
 				ps.setFloat(4, rs.getArrears());
 				ps.setFloat(5, rs.getAmount());
 				ps.setFloat(6, rs.getTotalPayble());
+				ps.setInt(7, rs.getEmpId());
 
 				int i = ps.executeUpdate();
 

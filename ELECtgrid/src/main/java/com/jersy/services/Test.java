@@ -7,7 +7,7 @@ import javax.ws.rs.core.MediaType;
 
 @Path("/test")
 public class Test {
-
+   // default calling path
 	@Path("/show")
 	@GET
 	@Produces(MediaType.TEXT_HTML)

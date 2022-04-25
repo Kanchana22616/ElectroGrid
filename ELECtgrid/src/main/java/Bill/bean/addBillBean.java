@@ -8,8 +8,16 @@ public class addBillBean {
 	private float arrears;
 	private float amount;
 	private float totalPayble;
+	private int empId;
 	
 	
+	
+	public int getEmpId() {
+		return empId;
+	}
+	public void setEmpId(int empId) {
+		this.empId = empId;
+	}
 	public String getUserId() {
 		return userId;
 	}

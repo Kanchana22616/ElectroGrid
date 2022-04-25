@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 
 public class dbConnection {
 
+
 	public static Connection connect() {
 		Connection con = null; //intial stage  assign nothing connected 
 		try {
@@ -14,9 +15,13 @@ public class dbConnection {
 			System.out.print("---Successfully connected DataBases---"); //dispaly messeage for output 
 		} catch (Exception e) {
 
+
 			e.printStackTrace();
 		}
 		return con;
 	}
 
+
+
 }
+

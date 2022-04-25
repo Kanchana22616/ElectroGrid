@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 
 import com.jersy.dbconnect.dbConnection;
 
+import user.bean.UserBean;
 import user.bean.changePasswordBean;
 
 public class changePasswordDao {
@@ -44,6 +45,31 @@ public class changePasswordDao {
 			PreparedStatement ps = con.prepareStatement("update user set password=? where email=?");
 			ps.setNString(1, changePasswordBean.getNewpassword());
 			ps.setNString(2, changePasswordBean.getEmail());
+			int i = ps.executeUpdate();
+
+			if (i > 0) {
+				return true;
+			} else {
+				return false;
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false;
+		}
+
+	}
+
+	public static boolean updateUserDetails(UserBean userbean) {
+
+		Connection con = dbConnection.connect();
+
+		try {
+
+			PreparedStatement ps = con.prepareStatement("update user set name=?, mobile=? where email=?");
+			ps.setNString(1, userbean.getName());
+			ps.setNString(2, userbean.getMobile());
 			int i = ps.executeUpdate();
 
 			if (i > 0) {

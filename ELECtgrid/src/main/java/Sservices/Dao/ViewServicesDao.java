@@ -36,6 +36,7 @@ public class ViewServicesDao {
 				jsonObject.put("packageUnitPrice", rrs.getFloat(3));
 				jsonObject.put("PackageInstruction", rrs.getString(4));
 				jsonObject.put("services", rrs.getString(5));
+				jsonObject.put("empId", rrs.getInt(6));
 				JSONArray jsonArray = new JSONArray();
 				jsonArray.add(jsonObject);
 				return "" + jsonArray;

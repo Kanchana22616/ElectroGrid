@@ -8,7 +8,7 @@ public class DbConnection {
 		Connection con = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/asiridb", "root", "root");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jersyproject", "root", "root");
 			// For testing purpose
 			System.out.print("---Successfully connected---");
 		} catch (Exception e) {

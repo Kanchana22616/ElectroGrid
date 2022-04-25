@@ -93,7 +93,7 @@ public class SservicesServices {
 
 						if (DeleteServicesDao.deleteUser(DeleteServices) == true) {
 
-							return "user delete successfully";
+							return "package deleted successfully";
 
 						} else {
 							return "remove failed";

@@ -29,12 +29,13 @@ public class InsertServicesDao {
 			} else {
 
 				//Inserting query
-				PreparedStatement ps = con.prepareStatement("insert into servicemanagement values(?,?,?,?,?)");
+				PreparedStatement ps = con.prepareStatement("insert into servicemanagement values(?,?,?,?,?,?)");
 				ps.setInt(1, rs.getPackageID());
 				ps.setString(2, rs.getPackageType());
 				ps.setFloat(3, rs.getPackageUnitPrice());
 				ps.setString(4, rs.getPackageInstruction());
 				ps.setString(5, rs.getServices());
+				ps.setInt(6, rs.getEmpId());
 				
 				int i = ps.executeUpdate();
 				//System.out.println("hellooo");

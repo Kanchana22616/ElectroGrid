@@ -27,7 +27,8 @@ public class AllViewServDao {
 				+ "<th>package Type</th>"
 				+ "<th>package Unit Price</th>"
 				+ "<th>Package Instruction</th>"
-				+ "<th>services</th> </tr>";
+				+ "<th>services</th> "
+				+ "<th>empId</th> </tr>";
 			
 
 		//Query statement for select all in table
@@ -41,6 +42,7 @@ public class AllViewServDao {
 			String packageUprice = rs.getString(3);
 			String Instruction = rs.getString(4);
 			String services = rs.getString(5);
+			String empId = rs.getString(6);
 	
 
 			// Add into the html table
@@ -49,6 +51,7 @@ public class AllViewServDao {
 			output += "<td>" + packageUprice + "</td>";
 			output += "<td>" + Instruction + "</td>";
 			output += "<td>" + services + "</td>";
+			output += "<td>" + empId + "</td>";
 		
 
 	}

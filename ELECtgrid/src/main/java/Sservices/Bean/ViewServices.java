@@ -6,6 +6,14 @@ public class ViewServices {
 	private int packageID;
 	private String packageType, PackageInstruction,services;
 	private float packageUnitPrice;
+	private int empId;
+	
+	public int getEmpId() {
+		return empId;
+	}
+	public void setEmpId(int empId) {
+		this.empId = empId;
+	}
 	public int getPackageID() {
 		return packageID;
 	}

@@ -25,9 +25,12 @@ public class viewBillDao {
 					+ "<th>Date</th>"
 					+ "<th>Arrears</th>"
 					+ "<th>Amount</th>"
-					+ "<th>Total Payble</th> </tr>";
+					+ "<th>Total Payble</th>"
+					+ "<th>Emp Name</th>"
+					+ " </tr>";
 
-			PreparedStatement ps1 = con.prepareStatement("select * from bill where billId=? ");
+
+			PreparedStatement ps1 = con.prepareStatement("select b.userId, b.billId, b.date, b.arrears, b.amount, b.totalPayble, e.EmpName from bill b, employees e where e.EmpID = b.EmpID and b.billId = ? ");
 			ps1.setString(1, rs.getBillId());
 			ResultSet rrs = ps1.executeQuery();
 
@@ -40,6 +43,7 @@ public class viewBillDao {
 				Float arrears = rrs.getFloat(4);
 				Float amount = rrs.getFloat(5);
 				Float totalPayble = rrs.getFloat(6);
+				String empName = rrs.getString(7);
 				
 				output += "<tr><td>" + userId + "</td>";
 				output += "<td>" + billId + "</td>";
@@ -47,6 +51,7 @@ public class viewBillDao {
 				output += "<td>" + arrears + "</td>";
 				output += "<td>" + amount + "</td>";
 				output += "<td>" + totalPayble + "</td>";
+				output += "<td>" + empName + "</td>";
 
 
 				output += "</table>";

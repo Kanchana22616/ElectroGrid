@@ -97,7 +97,7 @@ import com.jersy.dao.PaymentViewAllDao;
 					ObjectMapper objectMapper = new ObjectMapper();
 					PaymentUpdateBean updateD = objectMapper.readValue(s, PaymentUpdateBean.class);
 
-					if( PaymentUpdateDao.updatePayment(updateD) == true) {
+					if( PaymentUpdateDao.updatePayment(updateD) == true && PaymentUpdateDao.checkPayment(updateD)) {
 
 						return "update details successfully";
 
@@ -112,9 +112,10 @@ import com.jersy.dao.PaymentViewAllDao;
 				return "fail";
 			}
 			
+			//search function
 			
 			@Path("/view")
-			@GET
+			@POST
 			@Consumes(MediaType.APPLICATION_JSON)
 			@Produces(MediaType.APPLICATION_JSON)
 			public String loginUser(String s) throws JsonParseException, JsonMappingException, IOException {
@@ -140,7 +141,7 @@ import com.jersy.dao.PaymentViewAllDao;
 		
 			//get 
 			@GET
-			@Path("/enquiryread")
+			@Path("/viewAll")
 			@Produces(MediaType.TEXT_HTML)
 			public String readItems() {
 				PaymentViewAllDao r = new PaymentViewAllDao();

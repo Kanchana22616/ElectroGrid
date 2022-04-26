@@ -29,10 +29,12 @@ public class PaymentViewAllDao {
 				+ "<th>Amount</th>"
 				+ "<th>Email</th>"
 				+ "<th>Card Type</th>"
-				+ "<th>Card Number</th>"
+				+ "<th>Payment Id</th>"
+				+ "</tr> ";
+			/*	+ "<th>Card Number</th>"
 				+ "<th>Exp Month</th>"
 				+ " <th>Exp Year</th>"
-				+ "<th>CVV</th></tr>";
+				+ "<th>CVV</th>*/
 
 		//Quarry statement for select all in table
 		String query = "select * from payment";
@@ -44,10 +46,11 @@ public class PaymentViewAllDao {
 			float amount = rs.getFloat(2);
 			String email = rs.getString(3);
 			String accountType = rs.getString(4);
-			String cardNumber = rs.getString(5);
-			String expMonth = rs.getString(6);
-			String expYear = rs.getString(7);
-			String cvv = rs.getString(8);
+//			String cardNumber = rs.getString(5);
+//			String expMonth = rs.getString(6);
+//			String expYear = rs.getString(7);
+//			String cvv = rs.getString(8);
+			int paymentId = rs.getInt(9);
 			
 
 			// Add into the html table
@@ -55,10 +58,11 @@ public class PaymentViewAllDao {
 			output += "<td>" + amount + "</td>";
 			output += "<td>" + email + "</td>";
 			output += "<td>" + accountType + "</td>";
-			output += "<td>" + cardNumber + "</td>";
-			output += "<td>" + expMonth + "</td>";
-			output += "<td>" + expYear + "</td>";
-			output += "<td>" + cvv + "</td>";
+//			output += "<td>" + cardNumber + "</td>";
+//			output += "<td>" + expMonth + "</td>";
+//			output += "<td>" + expYear + "</td>";
+//			output += "<td>" + cvv + "</td>";
+			output += "<td>" + paymentId + "</td>";
 
 	}
 		con.close();

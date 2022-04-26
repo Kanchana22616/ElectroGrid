@@ -9,8 +9,7 @@ public class PaymentInsertBean {
 	private String expMonth;
 	private String expYear;
 	private int cvv ;
-	
-	
+	private int paymentId;
 	public String getAccountNumber() {
 		return accountNumber;
 	}
@@ -59,4 +58,11 @@ public class PaymentInsertBean {
 	public void setCvv(int cvv) {
 		this.cvv = cvv;
 	}
+	public int getPaymentId() {
+		return paymentId;
+	}
+	public void setPaymentId(int paymentId) {
+		this.paymentId = paymentId;
+	}
+	
 }

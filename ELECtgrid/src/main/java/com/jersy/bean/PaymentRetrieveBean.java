@@ -2,17 +2,17 @@ package com.jersy.bean;
 
 public class PaymentRetrieveBean {
 	
-	private String email;
+	private String accountNumber;
 	private String cardType;
 	private String cardNumber;
 	private String expMonth;
 	private String expYear;
 	private int cvv ;
-	public String getEmail() {
-		return email;
+	public String getAccountNumber() {
+		return accountNumber;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
 	}
 	public String getCardType() {
 		return cardType;

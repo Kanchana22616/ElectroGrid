@@ -15,7 +15,7 @@ public class PaymentInsertDao {
 
 		try {
 
-				PreparedStatement ps = conn.prepareStatement("insert into payment values(?,?,?,?,?,?,?,?)");
+				PreparedStatement ps = conn.prepareStatement("insert into payment values(?,?,?,?,?,?,?,?,?)");
 				ps.setString(1, payment.getAccountNumber());
 				ps.setString(2,Float.toString(payment.getAmount()));
 				ps.setString(3, payment.getEmail());
@@ -24,6 +24,7 @@ public class PaymentInsertDao {
 				ps.setString(6, payment.getExpMonth());
 				ps.setString(7, payment.getExpYear());
 				ps.setString(8,Integer.toString(payment.getCvv()));
+				ps.setInt(9, payment.getPaymentId());
 				int i = ps.executeUpdate();
 
 				if (i > 0) {
